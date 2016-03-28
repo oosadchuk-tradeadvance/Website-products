@@ -2,6 +2,11 @@
 
 <openerp>
     <data>
+    <template id="assets_frontend" inherit_id="website.assets_frontend" name="products_categories_table">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/website_products/static/src/js/website_products.js"></script>
+        </xpath>
+    </template>
         <template id="produ_index">
             <t t-call="website.layout">
                 <t t-set="title">Prod</t>
@@ -17,6 +22,41 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <div class="panel-group" id="accordion1">
+                              <div class="panel panel-default">
+                                <div class="panel-heading">
+                                  <h4 class="panel-title">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse10">
+                                      Dynamic Panel #1
+                                    </a>
+                                  </h4>
+                                </div>
+                                <div id="collapse10" class="panel-collapse collapse in">
+                                  <div class="panel-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="panel panel-default template">
+                                <div class="panel-heading">
+                                  <h4 class="panel-title">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse20">
+                                      Dynamic Panel #2 (template panel)
+                                    </a>
+                                  </h4>
+                                    
+                                </div>
+                                <div id="collapse20" class="panel-collapse collapse">
+                                  <div class="panel-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <br />
+                            <button class="btn btn-lg btn-primary btn-add-panel">
+                                <i class="glyphicon glyphicon-plus"></i> Add new panel
+                            </button>
                             <t t-foreach="products" t-as="product">
                                 <tr>
                                     <td t-esc="product.id"/>
@@ -28,19 +68,9 @@
                                     <td t-esc="product.list_price"/>
                                 </tr>
                             </t>
+
                         </tbody>
                     </table>
-                    <!--<t t-foreach="products" t-as="product">-->
-                        <!--<p>-->
-                            <!--<t t-esc="product.id"/>-->
-                            <!--<t t-esc="product.name"/>-->
-                            <!--<t t-esc="product.categ_id.name"/>-->
-                            <!--<t t-foreach="product.seller_id" t-as="seller">-->
-                                <!--<t t-esc="seller.name"/>-->
-                            <!--</t>-->
-                            <!--<i t-field="product.list_price"/>-->
-                        <!--</p>-->
-                    <!--</t>-->
                 </div>
             </t>
         </template>
