@@ -2,11 +2,11 @@
 
 <openerp>
     <data>
-<!--         <template id="assets_frontend" inherit_id="website.assets_frontend" name="products_categories_table">
+        <template id="assets_frontend" inherit_id="website.assets_frontend" name="products_categories_table">
             <xpath expr="." position="inside">
                 <script type="text/javascript" src="/website_products/static/src/js/website_products.js"></script>
             </xpath>
-        </template> -->
+        </template>
         <template id="produ_index">
             <t t-call="website.layout">
                 <t t-set="title">Prod</t>
@@ -23,24 +23,21 @@
                         </thead>
                         <tbody>
                             <t t-foreach="categories" t-as="category">
-<!--                                 <p>
-                                    <t t-esc="category.name"/>
-                                </p> -->
-                                <div class="panel-group" id="accordion1">
+                                <td class="panel-group" id="accordion1" colspan="5">
                                   
                                   <div class="panel panel-default template">
                                     <div class="panel-heading">
-                                      <h4 class="panel-title">
-                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse{{category.id}}">
-                                          <t t-esc="category.name"/>
-                                        </a>
+                                        <h4 class="panel-title">
+                                          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" t-attf-href="#collapse{{ category.id }}">
+                                            <t t-esc="category.name"/>
+                                          </a>
                                       </h4>
 
                                     </div>
-                                    <div t-attf-id="collapse{{category.id}}" class="panel-collapse collapse">
-                                      <div class="panel-body">
-                                        <t t-foreach="products" t-as="product">
-                                            <tr>
+                                    <t t-foreach="products" t-as="product">
+                                        <tr t-attf-id="collapse{{ category.id }}" class="panel-collapse collapse">
+                                      <!-- <div class="panel-body"> -->
+                                            <!-- <tr> -->
                                                 <td t-esc="product.id"/>
                                                 <td t-esc="product.name"/>
                                                 <td t-esc="product.categ_id.name"/>
@@ -48,13 +45,13 @@
                                                     <td t-esc="seller.name"/>
                                                 </t>
                                                 <td t-esc="product.list_price"/>
-                                            </tr>
-                                        </t>
-                                      </div>
-                                    </div>
+                                            <!-- </tr> -->
+                                      <!-- </div> -->
+                                        </tr>
+                                    </t>
                                   </div>
                                 <!-- ### -->
-                                </div>
+                                </td>
                             </t>
                         </tbody>
                     </table>
