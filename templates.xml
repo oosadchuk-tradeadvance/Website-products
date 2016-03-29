@@ -11,6 +11,9 @@
             <t t-call="website.layout">
                 <t t-set="title">Prod</t>
                 <div class="container">
+                    <p>
+                        <button class="btn btn-danger">New button</button>
+                    </p>
                     <table class="table table-hover">
                         <thead>
                             <tr>
