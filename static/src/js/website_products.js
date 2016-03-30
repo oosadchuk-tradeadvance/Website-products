@@ -14,16 +14,13 @@
 
 $(document).ready(function(){
     $(".btn-danger").click(function() {
-        var self = this;
+        // var self = this;
         var session = new openerp.Session();
         var Orders = new openerp.Model(session, "sale.order");
-        // window.alert("0");
-        window.alert(self);
-        window.alert(Orders);
-        window.alert(session);
-        var ord = search([]);
-        var id_s = Orders.call('action_button_confirm', [ord]).done(function (results) {
+
+        var id_s = Orders.call('confirm_confirm', [[]]).done(function (results) {
             window.alert("16");
+            window.alert(id_s);
         });
     window.alert("32");
     });
